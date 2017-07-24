@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+}
+nav {
+  height: 10vh;
+  width: 100%;
+  margin: 0;
+  background-color: #002F2F;
+  color: #EFECCA;
+  border-bottom: thick solid #E6E2AF;
+  padding-top: 5vh;
+  padding-left: 40%;
+}
+h1 {
+  margin: 0;
+}
