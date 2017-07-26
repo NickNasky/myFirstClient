@@ -2,7 +2,10 @@ body {
   margin: 0;
 }
 nav {
-  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  height: auto;
   width: 100%;
   margin: 0;
   background-color: #002F2F;
@@ -13,4 +16,7 @@ nav {
 }
 h1 {
   margin: 0;
+}
+.modal {
+  color: black;
 }

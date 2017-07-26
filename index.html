@@ -5,10 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>You Won't Use This</title>
     <link rel="stylesheet" type="text/css" href="./index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   </head>
   <body>
     <nav>
       <h1>You Won't Use This Planner</h1>
+      <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Add an Assignment
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Type shit in, dummy</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <label for="assignment">Name:</label>
+          <input autofocus placeholder="Enter assignment name" id="assignment" name="assignment"></input>
+          <br>
+          <label for="date">Due Date:</label>
+          <input placeholder="Enter due date" id="date" name="date"></input>
+          <br>
+          <label for="priority">Priority:</label>
+          <input placeholder="Between 1 and 10" id="priority" name="priority"></input>
+          <br>
+          <label for="description">Description:</label>
+          <input placeholder="Describe the homework" id="description" name="description"></input>
+          <br>
+          <label for="subject">Subject:</label>
+          <input placeholder="Subject" id="subject" name="subject"></input>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary post-btn">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
     </nav>
     <div class="assignments">
     </div>
@@ -16,6 +55,7 @@
       src="https://code.jquery.com/jquery-3.2.1.js"
       integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
       crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="app.js" charset="utf-8"></script>
   </body>
 </html>
