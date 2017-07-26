@@ -1,3 +1,5 @@
+let savedData = {};
+
 $(document).ready(() => {
 $.get('http://localhost:8080/')
   .then((data) => {
@@ -12,8 +14,10 @@ $.get('http://localhost:8080/')
           <li>Subject: ${data[i].subject}</li>
         </ul>`
     )};
+    savedData = data;
   });
   $('.post-btn').click(postObj);
+  $('.put-btn').click(putObj);
 });
 
 function postObj() {
@@ -24,5 +28,26 @@ function postObj() {
   post.description = $('#description').val();
   post.subject = $('#subject').val();
   $.post('http://localhost:8080/', post);
+  window.location.reload();
+}
+function putObj() {
+  let put = {};
+  let idNum = put.id;
+  if ($('#assignmentId').val() != null) {
+    idNum = $('#assignmentId').val();
+  } else {
+    event.preventDefault();
+    console.warn('Please enter a valid ID');
+  }
+  put.name = $('#assignment1').val();
+  put.due_date = $('#date1').val();
+  put.priority = $('#priority1').val();
+  put.description =$('#description1').val();
+  put.subject = $('#subject1').val();
+  $.ajax({
+    url: 'http://localhost:8080/' + idNum,
+    method: 'PUT',
+    data: put
+  });
   window.location.reload();
 }

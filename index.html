@@ -48,6 +48,47 @@
     </div>
   </div>
 </div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1">
+Update an Assignment
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <h4 class="modal-title" id="myModalLabel">Type shit in, dummy</h4>
+</div>
+<div class="modal-body">
+  <form>
+    <label for="assignmentId">Assignment ID:</label>
+    <input autofocus placeholder="Enter assignment number to be updated" id="assignmentId" name="assignmentId"></input>
+    <br>
+    <label for="assignment">Name:</label>
+    <input placeholder="Enter assignment name" id="assignment1" name="assignment"></input>
+    <br>
+    <label for="date">Due Date:</label>
+    <input placeholder="Enter due date" id="date1" name="date"></input>
+    <br>
+    <label for="priority">Priority:</label>
+    <input placeholder="Between 1 and 10" id="priority1" name="priority"></input>
+    <br>
+    <label for="description">Description:</label>
+    <input placeholder="Describe the homework" id="description1" name="description"></input>
+    <br>
+    <label for="subject">Subject:</label>
+    <input placeholder="Subject" id="subject1" name="subject"></input>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  <button type="button" class="btn btn-primary put-btn">Save Changes</button>
+</div>
+</div>
+</div>
+</div>
     </nav>
     <div class="assignments">
     </div>
