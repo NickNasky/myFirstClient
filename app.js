@@ -59,17 +59,20 @@ function postObj() {
   post.priority = $('#priority').val();
   post.description = $('#description').val();
   post.subject = $('#subject').val();
-    if(post.name && post.due_date && post.priority && post.description && post.subject) {
+    if (post.name && post.due_date && post.priority && post.description && post.subject) {
       $.post(host, post)
+      .then(data => {
+        window.location.reload();
+      })
       .catch((data) => {
         alert(data.responseJSON.Error)
       });
-      window.location.reload();
     } else {
       event.preventDefault();
       alert('Please fill out all fields!')
     }
 }
+
 function putObj() {
   let put = {};
   idNum = $('#assignmentId').val();
@@ -84,10 +87,12 @@ function putObj() {
       method: 'PUT',
       data: put
     })
+    .then(data => {
+      window.location.reload();
+    })
     .catch((data) => {
     alert (data.responseJSON.Error)
     });
-    window.location.reload();
   } else {
     event.preventDefault();
     alert('Please fill out all fields correctly!');
