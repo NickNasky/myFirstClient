@@ -3,7 +3,6 @@ let savedData = {};
 $(document).ready(() => {
 $.get('http://localhost:8080/')
   .then((data) => {
-    console.log(data);
     for (let i = 0; i < data.length; i++){
     $('.assignments').append(
         `<ul>
@@ -12,12 +11,14 @@ $.get('http://localhost:8080/')
           <li>Priority: ${data[i].priority}</li>
           <li>${data[i].description}</li>
           <li>Subject: ${data[i].subject}</li>
-        </ul>`
+        </ul>
+        <button type="submit" class="btn btn-primary delete-btn" id=${data[i].id}>Delete</button>`
     )};
     savedData = data;
+    $('.post-btn').click(postObj);
+    $('.put-btn').click(putObj);
+    $('.delete-btn').click(delObj);
   });
-  $('.post-btn').click(postObj);
-  $('.put-btn').click(putObj);
 });
 
 function postObj() {
@@ -48,6 +49,16 @@ function putObj() {
     url: 'http://localhost:8080/' + idNum,
     method: 'PUT',
     data: put
+  });
+  window.location.reload();
+}
+
+function delObj() {
+  console.log("clicked");
+  let idNum = $(this).attr('id');
+  $.ajax({
+    url: 'http://localhost:8080/' + idNum,
+    type: 'DELETE'
   });
   window.location.reload();
 }
