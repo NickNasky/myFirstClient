@@ -1,5 +1,5 @@
 let savedData = {};
-let port = 'http://localhost:8080/' || 'https://sheltered-temple-20365.herokuapp.com/'
+let port = 'https://sheltered-temple-20365.herokuapp.com/'
 $(document).ready(() => {
 $.get(port)
   .then((data) => {
