@@ -1,11 +1,12 @@
 let savedData = {};
-
+let port = 'http://localhost:8080/' || 'https://sheltered-temple-20365.herokuapp.com/'
 $(document).ready(() => {
-$.get('http://localhost:8080/')
+$.get(port)
   .then((data) => {
     for (let i = 0; i < data.length; i++){
     $('.assignments').append(
-        `<ul>
+        `<div class="underline">
+        <ul>
           <h1>${data[i].name}</h1>
           <li>ID: ${data[i].id}
           <li>${data[i].due_date}</li>
@@ -13,7 +14,8 @@ $.get('http://localhost:8080/')
           <li>${data[i].description}</li>
           <li>Subject: ${data[i].subject}</li>
         </ul>
-        <button type="submit" class="btn btn-primary delete-btn" id=${data[i].id}>Delete</button>`
+        <button type="submit" class="btn btn-primary delete-btn" id=${data[i].id}>Delete</button>
+        </div>`
     )};
     savedData = data;
     $('.post-btn').click(postObj);
@@ -32,11 +34,12 @@ function reloadPage() {
 function getObj() {
   event.preventDefault();
   let idNum = $('#getOne').val();
-  $.get('http://localhost:8080/' + idNum)
+  $.get(port + idNum)
   .then((data) => {
     $('.assignments').empty();
     $('.assignments').append(
-        `<ul>
+        `<div class="underline">
+        <ul>
           <h1>${data.name}</h1>
           <li>ID: ${data.id}
           <li>${data.due_date}</li>
@@ -44,7 +47,8 @@ function getObj() {
           <li>${data.description}</li>
           <li>Subject: ${data.subject}</li>
         </ul>
-        <button type="submit" class="btn btn-primary delete-btn" id=${data.id}>Delete</button>`)
+        <button type="submit" class="btn btn-primary delete-btn" id=${data.id}>Delete</button>
+        </div>`)
   });
 };
 
@@ -56,7 +60,7 @@ function postObj() {
   post.description = $('#description').val();
   post.subject = $('#subject').val();
     if(post.name && post.due_date && post.priority && post.description && post.subject) {
-      $.post('http://localhost:8080/', post)
+      $.post(port, post)
       .catch((data) => {
         alert(data.responseJSON.Error)
       });
@@ -77,7 +81,7 @@ function putObj() {
   put.subject = $('#subject1').val();
   if(idNum && post.name && post.due_date && post.priority && post.description && post.subject) {
     $.ajax({
-      url: 'http://localhost:8080/' + idNum,
+      url: port + idNum,
       method: 'PUT',
       data: put
     })

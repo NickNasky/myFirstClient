@@ -2,17 +2,15 @@ body {
   margin: 0;
 }
 nav {
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-around;
   height: auto;
   width: 100%;
   margin: 0;
   background-color: #002F2F;
   color: #EFECCA;
   border-bottom: thick solid #E6E2AF;
-  padding-top: 5vh;
-  padding-left: 40%;
 }
 h1 {
   margin: 0;
@@ -20,6 +18,40 @@ h1 {
 .modal {
   color: black;
 }
-.delStatus {
-  display: none;
+.branding {
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+  padding-left: 5%;
+}
+.branding h1 {
+  font-size: 1.9em;
+  margin-top: 1%;
+}
+.btns {
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+  padding-left: 40%;
+  height: 12vh;
+  padding-top: 5vh;
+  justify-content: space-between;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 15vh;
+}
+.delete-btn {
+  margin-left: 5%;
+}
+form {
+  padding-top: 5vh;
+  padding-left: 2%;
+}
+.underline {
+  width: 100%;
+  border-bottom: thin solid black;
+  padding-bottom: 1%;
 }
