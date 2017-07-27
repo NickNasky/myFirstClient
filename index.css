@@ -20,3 +20,6 @@ h1 {
 .modal {
   color: black;
 }
+.delStatus {
+  display: none;
+}
