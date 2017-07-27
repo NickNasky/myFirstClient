@@ -98,7 +98,7 @@ function putObj() {
 function delObj() {
   let idNum = $(this).attr('id');
   $.ajax({
-    url: 'http://localhost:8080/' + idNum,
+    url: port + idNum,
     type: 'DELETE'
   });
   window.alert("Item successfully deleted!");
