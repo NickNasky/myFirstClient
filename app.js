@@ -1,7 +1,7 @@
 let savedData = {};
-let port = 'https://sheltered-temple-20365.herokuapp.com/'
+let host = 'https://sheltered-temple-20365.herokuapp.com/'
 $(document).ready(() => {
-$.get(port)
+$.get(host)
   .then((data) => {
     for (let i = 0; i < data.length; i++){
     $('.assignments').append(
@@ -34,7 +34,7 @@ function reloadPage() {
 function getObj() {
   event.preventDefault();
   let idNum = $('#getOne').val();
-  $.get(port + idNum)
+  $.get(host + idNum)
   .then((data) => {
     $('.assignments').empty();
     $('.assignments').append(
@@ -60,7 +60,7 @@ function postObj() {
   post.description = $('#description').val();
   post.subject = $('#subject').val();
     if(post.name && post.due_date && post.priority && post.description && post.subject) {
-      $.post(port, post)
+      $.post(host, post)
       .catch((data) => {
         alert(data.responseJSON.Error)
       });
@@ -81,7 +81,7 @@ function putObj() {
   put.subject = $('#subject1').val();
   if(idNum && put.name && put.due_date && put.priority && put.description && put.subject) {
     $.ajax({
-      url: port + idNum,
+      url: host + idNum,
       method: 'PUT',
       data: put
     })
@@ -98,7 +98,7 @@ function putObj() {
 function delObj() {
   let idNum = $(this).attr('id');
   $.ajax({
-    url: port + idNum,
+    url: host + idNum,
     type: 'DELETE'
   });
   window.alert("Item successfully deleted!");
