@@ -79,7 +79,7 @@ function putObj() {
   put.priority = $('#priority1').val();
   put.description =$('#description1').val();
   put.subject = $('#subject1').val();
-  if(idNum && post.name && post.due_date && post.priority && post.description && post.subject) {
+  if(idNum && put.name && put.due_date && put.priority && put.description && put.subject) {
     $.ajax({
       url: port + idNum,
       method: 'PUT',
