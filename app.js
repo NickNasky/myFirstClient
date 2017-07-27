@@ -72,7 +72,6 @@ function postObj() {
 }
 function putObj() {
   let put = {};
-  let idNum = put.id;
   idNum = $('#assignmentId').val();
   put.name = $('#assignment1').val();
   put.due_date = $('#date1').val();
