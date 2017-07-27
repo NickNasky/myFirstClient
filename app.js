@@ -20,15 +20,20 @@ $.get('http://localhost:8080/')
     $('.put-btn').click(putObj);
     $('.delete-btn').click(delObj);
     $('.get-btn').click(getObj);
+    $('.reset').click(reloadPage);
   });
 });
+
+function reloadPage() {
+  event.preventDefault();
+  window.location.reload();
+}
 
 function getObj() {
   event.preventDefault();
   let idNum = $('#getOne').val();
-  console.log("clicked");
   $.get('http://localhost:8080/' + idNum)
-  .then(function(data) {
+  .then((data) => {
     $('.assignments').empty();
     $('.assignments').append(
         `<ul>
@@ -50,29 +55,40 @@ function postObj() {
   post.priority = $('#priority').val();
   post.description = $('#description').val();
   post.subject = $('#subject').val();
-  $.post('http://localhost:8080/', post);
-  window.location.reload();
+    if(post.name && post.due_date && post.priority && post.description && post.subject) {
+      $.post('http://localhost:8080/', post)
+      .catch((data) => {
+        alert(data.responseJSON.Error)
+      });
+      window.location.reload();
+    } else {
+      event.preventDefault();
+      alert('Please fill out all fields!')
+    }
 }
 function putObj() {
   let put = {};
   let idNum = put.id;
-  if ($('#assignmentId').val() != null) {
-    idNum = $('#assignmentId').val();
-  } else {
-    event.preventDefault();
-    console.warn('Please enter a valid ID');
-  }
+  idNum = $('#assignmentId').val();
   put.name = $('#assignment1').val();
   put.due_date = $('#date1').val();
   put.priority = $('#priority1').val();
   put.description =$('#description1').val();
   put.subject = $('#subject1').val();
-  $.ajax({
-    url: 'http://localhost:8080/' + idNum,
-    method: 'PUT',
-    data: put
-  });
-  window.location.reload();
+  if(idNum && post.name && post.due_date && post.priority && post.description && post.subject) {
+    $.ajax({
+      url: 'http://localhost:8080/' + idNum,
+      method: 'PUT',
+      data: put
+    })
+    .catch((data) => {
+    alert (data.responseJSON.Error)
+    });
+    window.location.reload();
+  } else {
+    event.preventDefault();
+    alert('Please fill out all fields correctly!');
+  };
 }
 
 function delObj() {
